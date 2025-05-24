@@ -67,9 +67,10 @@ button:focus-visible {
   }
 }
 
-.background-image {
-  background-image: url('./assets/279382-3840x2160-desktop-4k-darth-revan-wallpaper-image\ \(1\).jpg');
+body {
+  background-image: url('./assets/279382-3840x2160-desktop-4k-darth-revan-wallpaper-image.jpg');
+  background-repeat:no-repeat;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-}
+  background-attachment: fixed;
+} 
