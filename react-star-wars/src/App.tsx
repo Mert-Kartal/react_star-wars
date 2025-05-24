@@ -7,7 +7,7 @@ import { characters } from './data/data'
 
 function App() {
   const [show, setShow] = useState(false);
-  
+  const [filter, setFilter] = useState(characters);
   const ShowCharacters= ()=>{
     setShow(!show) 
     console.log(show)
@@ -23,18 +23,15 @@ function App() {
 
   const characterHomeworld = characterLowercase.map((character) => { return character.homeworld})
    
-   const setCharacterHomeWorld = new Set( characterHomeworld)
+   const homeworldArray = [...new Set( characterHomeworld)]
   
-   const homeworldArray = [...setCharacterHomeWorld];
   
    const filterCharacters = (homeworld:string) => {
    const filteredCharacters = characterLowercase.filter((character) => character.homeworld === homeworld)
    
    console.log(filteredCharacters)
    
-   return(filteredCharacters.map((character) => {
-    <Card key={character.id} character={character} />
-   }))
+   return setFilter(filteredCharacters)
    }
 
 return (
@@ -50,7 +47,7 @@ return (
     ))}
 
       <div className="row">
-    {characterLowercase.map((character) => (
+    {filter.map((character) => (
       <Card key={character.id} character={character} />
     ))}
     </div>
