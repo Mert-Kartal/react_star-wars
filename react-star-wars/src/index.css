@@ -66,3 +66,10 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.background-image {
+  background-image: url('./assets/279382-3840x2160-desktop-4k-darth-revan-wallpaper-image\ \(1\).jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
