@@ -6,38 +6,51 @@ import Radio from './components/radio';
 import { characters } from './data/data'
 
 function App() {
-
   const [show, setShow] = useState(false);
+  
+  const ShowCharacters= ()=>{
+    setShow(!show) 
+    console.log(show)
+  }
+  
+  
+  const characterLowercase = characters.map((character) => {
+    return{
+     ...character,
+     homeworld: character.homeworld ? character.homeworld.toLowerCase() : "unknown",
+   }
+  });
 
-const ShowCharacters= ()=>{
-  setShow(!show) 
-  console.log(show)
-}
+  const characterHomeworld = characterLowercase.map((character) => { return character.homeworld})
+   
+   const setCharacterHomeWorld = new Set( characterHomeworld)
+  
+   const homeworldArray = [...setCharacterHomeWorld];
+  
+   const filterCharacters = (homeworld:string) => {
+   const filteredCharacters = characterLowercase.filter((character) => character.homeworld === homeworld)
+   
+   console.log(filteredCharacters)
+   
+   return(filteredCharacters.map((character) => {
+    <Card key={character.id} character={character} />
+   }))
+   }
 
-const characterLowercase = characters.map((character) => {
- return{
-  ...character,
-  homeworld: character.homeworld ? character.homeworld.toLowerCase() : "unknown",
-}});
-
-const characterHomeworld = characterLowercase.map((character) => { return character.homeworld})
-console.log(characterHomeworld)
-const setCharacterHomeWorld = new Set( characterHomeworld)
-const homeworldArray = [...setCharacterHomeWorld];
 return (
     <>
       <Button variant="danger fs-5" className="mb-3" onClick={ShowCharacters}>
-        {show?"Hide":"Show"}
+        {show?" The Dark Side Of The Force":"Show Me"}  
       </Button>
     
     <div className="container">
       <div className={show?"":"d-none"}>
       {homeworldArray.map((homeworld,index) => (
-      <Radio key={index} homeworld={homeworld} />
+      <Radio key={index} homeworld={homeworld} filterFunc={filterCharacters}/>
     ))}
 
       <div className="row">
-    {characters.map((character) => (
+    {characterLowercase.map((character) => (
       <Card key={character.id} character={character} />
     ))}
     </div>
