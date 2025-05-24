@@ -8,7 +8,7 @@ function App() {
     <div className="container">
       <div className="row">
     {characters.map((character) => (
-      <Card character={character} />
+      <Card key={character.id} character={character} />
     ))}
     </div>
     </div>

@@ -6,9 +6,9 @@ function Card({ character }: { character: Character }) {
     <>
         <div className="col-md-4">
       <div className="card">
-        <img src={pic} alt={name} />
+        <img src={pic} style={{ height: "500px"}} alt={name} /> 
         <h2>{name}</h2>
-        <p>{homeworld}</p>
+        <h3>{homeworld}</h3>
       </div>
       </div>
     </>

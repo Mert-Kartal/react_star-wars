@@ -98,7 +98,7 @@ export const characters = [
   {
     id: 18,
     name: "Wedge Antilles",
-    pic: "https://vignette.wikia.nocookie.net/starwars/images/6/60/WedgeHelmetless-ROTJHD.jpg",
+    pic: "https://upload.wikimedia.org/wikipedia/en/4/41/Wedge_Antilles-Denis_Lawson-Star_Wars_%281977%29.jpg",
     homeworld: "corellia",
   },
   {
